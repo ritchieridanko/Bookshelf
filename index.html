@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookShelf.io</title>
+
+    <!-- personal styling -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>BookShelf.io</h1>
+    </header>
+
+    <main>
+      <div class="content">
+        <h3>Insert A New Book</h3>
+        <form id="form" action="#">
+          <div class="form-element">
+            <label for="title">Book Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Enter the book title"
+              required
+            />
+          </div>
+          <div class="form-element">
+            <label for="author">Author's Name</label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="Enter the author's name"
+              required
+            />
+          </div>
+          <div class="form-element">
+            <label for="year">Publication Year</label>
+            <input
+              type="number"
+              id="year"
+              name="year"
+              min="1950"
+              max="2025"
+              placeholder="Enter the publication year"
+              required
+            />
+          </div>
+          <div class="checkbox-element">
+            <label for="isComplete">Finished Reading it? </label>
+            <input type="checkbox" id="isComplete" name="isComplete" />
+          </div>
+          <div class="submit-btn">
+            <input
+              type="submit"
+              id="submit"
+              name="submit"
+              value="Add to Bookshelf"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="content">
+        <h3>Finished Bookshelf</h3>
+        <div class="bookshelf-container">
+          <div id="finished-bookshelf" class="bookshelf"></div>
+          <p id="empty-finished-bookshelf" class="empty-bookshelf">
+            <i>Bookshelf is empty</i>
+          </p>
+        </div>
+        <div class="book-info-header">
+          <h4>Information about the book</h4>
+          <div class="book-info-buttons">
+            <button
+              id="finished-bookshelf-edit-btn"
+              class="book-info-btn edit-btn"
+            >
+              Edit
+            </button>
+            <button
+              id="finished-bookshelf-move-btn"
+              class="book-info-btn move-btn"
+            >
+              Move
+            </button>
+            <button
+              id="finished-bookshelf-clear-btn"
+              class="book-info-btn clear-btn"
+            >
+              Clear
+            </button>
+            <button
+              id="finished-bookshelf-delete-btn"
+              class="book-info-btn delete-btn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <div class="book-info-container">
+          <div class="book-info-element">
+            <p>Book ID</p>
+            <p>:</p>
+            <p id="finished-book-info-id"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Title</p>
+            <p>:</p>
+            <p id="finished-book-info-title"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Author</p>
+            <p>:</p>
+            <p id="finished-book-info-author"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Year</p>
+            <p>:</p>
+            <p id="finished-book-info-year"><i>(select a book)</i></p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h3>Unfinished Bookshelf</h3>
+        <div class="bookshelf-container">
+          <div id="unfinished-bookshelf" class="bookshelf"></div>
+          <p id="empty-unfinished-bookshelf" class="empty-bookshelf">
+            <i>Bookshelf is empty</i>
+          </p>
+        </div>
+        <div class="book-info-header">
+          <h4>Information about the book</h4>
+          <div class="book-info-buttons">
+            <button
+              id="unfinished-bookshelf-edit-btn"
+              class="book-info-btn edit-btn"
+            >
+              Edit
+            </button>
+            <button
+              id="unfinished-bookshelf-move-btn"
+              class="book-info-btn move-btn"
+            >
+              Move
+            </button>
+            <button
+              id="unfinished-bookshelf-clear-btn"
+              class="book-info-btn clear-btn"
+            >
+              Clear
+            </button>
+            <button
+              id="unfinished-bookshelf-delete-btn"
+              class="book-info-btn delete-btn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <div class="book-info-container">
+          <div class="book-info-element">
+            <p>Book ID</p>
+            <p>:</p>
+            <p id="unfinished-book-info-id"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Title</p>
+            <p>:</p>
+            <p id="unfinished-book-info-title"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Author</p>
+            <p>:</p>
+            <p id="unfinished-book-info-author"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Year</p>
+            <p>:</p>
+            <p id="unfinished-book-info-year"><i>(select a book)</i></p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h3>Search For A Book</h3>
+        <div class="search">
+          <input
+            type="text"
+            id="search-bar"
+            name="search-bar"
+            placeholder="Enter the book title"
+          />
+          <button id="clear-search-bar-btn">Clear</button>
+        </div>
+        <div class="bookshelf-container">
+          <div id="search-bookshelf" class="bookshelf"></div>
+          <p id="empty-search-bookshelf" class="empty-bookshelf">
+            <i>Type in the search bar to find a book</i>
+          </p>
+          <p id="not-found-bookshelf" class="empty-bookshelf"></p>
+        </div>
+        <div class="book-info-header">
+          <h4>Information about the book</h4>
+          <div class="book-info-buttons">
+            <button
+              id="search-bookshelf-edit-btn"
+              class="book-info-btn edit-btn"
+            >
+              Edit
+            </button>
+            <button
+              id="search-bookshelf-move-btn"
+              class="book-info-btn move-btn"
+            >
+              Move
+            </button>
+            <button
+              id="search-bookshelf-clear-btn"
+              class="book-info-btn clear-btn"
+            >
+              Clear
+            </button>
+            <button
+              id="search-bookshelf-delete-btn"
+              class="book-info-btn delete-btn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <div class="book-info-container">
+          <div class="book-info-element">
+            <p>Book ID</p>
+            <p>:</p>
+            <p id="search-book-info-id"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Title</p>
+            <p>:</p>
+            <p id="search-book-info-title"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Author</p>
+            <p>:</p>
+            <p id="search-book-info-author"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Year</p>
+            <p>:</p>
+            <p id="search-book-info-year"><i>(select a book)</i></p>
+          </div>
+          <div class="book-info-element">
+            <p>Bookshelf</p>
+            <p>:</p>
+            <p id="search-book-info-bookshelf"><i>(select a book)</i></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="nothing-selected" class="modal-container">
+      <div class="modal-box">
+        <p id="nothing-selected-edit-txt">
+          Select a book to edit from the bookshelf
+        </p>
+        <p id="nothing-selected-move-txt">
+          Select a book to move from the bookshelf
+        </p>
+        <p id="nothing-selected-delete-txt">
+          Select a book to delete from the bookshelf
+        </p>
+        <button id="nothing-selected-close-btn">Close</button>
+      </div>
+    </div>
+    <div id="selected-to-edit" class="modal-container">
+      <div class="modal-box edit-modal-box">
+        <h3 id="edit-modal-box-title">Edit The Book:</h3>
+        <div id="edit-form">
+          <div class="form-element">
+            <label for="edit-title">Book Title</label>
+            <input
+              type="text"
+              id="edit-title"
+              name="edit-title"
+              placeholder="Enter the book title"
+              required
+            />
+          </div>
+          <div class="form-element">
+            <label for="edit-author">Author's Name</label>
+            <input
+              type="text"
+              id="edit-author"
+              name="edit-author"
+              placeholder="Enter the author's name"
+              required
+            />
+          </div>
+          <div class="form-element">
+            <label for="edit-year">Publication Year</label>
+            <input
+              type="number"
+              id="edit-year"
+              name="edit-year"
+              min="1950"
+              max="2025"
+              placeholder="Enter the publication year"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-box-buttons edit-modal-box-buttons">
+          <button id="edit-finished-book-btn">Make Changes</button>
+          <button id="edit-unfinished-book-btn">Make Changes</button>
+          <button id="edit-search-book-btn">Make Changes</button>
+          <button id="edit-cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div id="selected-to-move" class="modal-container">
+      <div class="modal-box">
+        <p id="selected-to-move-txt"></p>
+        <div class="modal-box-buttons">
+          <button id="move-to-finished-confirm-btn">Confirm</button>
+          <button id="move-to-unfinished-confirm-btn">Confirm</button>
+          <button id="move-to-opposite-confirm-btn">Confirm</button>
+          <button id="move-cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div id="selected-to-delete" class="modal-container">
+      <div class="modal-box">
+        <p id="selected-to-delete-txt"></p>
+        <div class="modal-box-buttons">
+          <button id="delete-from-finished-btn">Delete</button>
+          <button id="delete-from-unfinished-btn">Delete</button>
+          <button id="delete-from-search-btn">Delete</button>
+          <button id="delete-cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Created By
+        <a
+          href="https://www.linkedin.com/in/ritchie-ridanko-478534141/"
+          target="_blank"
+          >Ritchie Ridanko</a
+        >
+        &#169; 2024
+      </p>
+    </footer>
+
+    <!-- functionalities -->
+    <script src="./main.js"></script>
+  </body>
+</html>

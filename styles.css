@@ -1,0 +1,467 @@
+:root {
+  --primary-color: #343BA5;
+  --secondary-color: #F7F8FC;
+  --tertiary-yellow: #EDCB34;
+  --tertiary-green: #2BD588;
+  --tertiary-red: #ED3456;
+  --tertiary-purple: #6F34ED;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+  font-family: Ubuntu, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+header h1 {
+  color: var(--secondary-color);
+  font-size: 1.75em;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+main {
+  margin-block: 1.5em;
+  margin-inline: 25em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.content {
+  margin-inline: 1em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border: 0.05em solid var(--primary-color);
+  border-radius: 1.5em;
+  box-shadow: 0 0 0.5em 0.025em rgba(0, 0, 0, 0.025);
+  background-color: var(--secondary-color);
+}
+
+.content h3 {
+  margin: 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.content h4 {
+  margin: 0;
+  color: var(--primary-color);
+  letter-spacing: 0.025em;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form-element label {
+  color: var(--primary-color);
+}
+
+.form-element input {
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.25em 0.025em rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.checkbox-element {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.checkbox-element label {
+  color: var(--primary-color);
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#submit {
+  padding-block: 0.75em;
+  padding-inline: 1em;
+  border: 0.01em solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+#submit:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.bookshelf-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.bookshelf {
+  display: flex;
+  gap: 1.5em;
+}
+
+.book {
+  height: 12em;
+  max-width: 7.5em;
+  min-width: 7.5em;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.book:hover {
+  background-color: rgba(52, 59, 165, 0.1);
+}
+
+.book:active {
+  background-color: rgba(52, 59, 165, 0.25);
+}
+
+.book-image {
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-image img {
+  height: 110%;
+  width: 110%;
+}
+
+.book-title {
+  height: 25%;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-title p {
+  margin: 0;
+  font-size: 0.75em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.empty-bookshelf {
+  height: 12em;
+  margin: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 0.01em solid var(--primary-color);
+}
+
+.book-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-info-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.5em;
+}
+
+.book-info-btn {
+  width: 4.5em;
+  padding-inline: 0.5em;
+  border: 0.01em solid;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.edit-btn {
+  border-color: var(--tertiary-green);
+  background-color: var(--secondary-color);
+  color: var(--tertiary-green);
+}
+
+.edit-btn:hover {
+  background-color: var(--tertiary-green);
+  color: var(--secondary-color);
+}
+
+.move-btn {
+  border-color: var(--tertiary-purple);
+  background-color: var(--secondary-color);
+  color: var(--tertiary-purple);
+}
+
+.move-btn:hover {
+  background-color: var(--tertiary-purple);
+  color: var(--secondary-color);
+}
+
+.clear-btn {
+  border-color: var(--tertiary-yellow);
+  background-color: var(--secondary-color);
+  color: var(--tertiary-yellow);
+}
+
+.clear-btn:hover {
+  background-color: var(--tertiary-yellow);
+  color: var(--secondary-color);
+}
+
+.delete-btn {
+  border-color: var(--tertiary-red);
+  background-color: var(--secondary-color);
+  color: var(--tertiary-red);
+}
+
+.delete-btn:hover {
+  background-color: var(--tertiary-red);
+  color: var(--secondary-color);
+}
+
+.book-info-container {
+  padding-inline: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.book-info-element {
+  display: flex;
+  overflow: hidden;
+}
+
+.book-info-element p {
+  margin: 0;
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-info-element p:nth-child(1) {
+  width: 48%;
+}
+
+.book-info-element p:nth-child(2) {
+  width: 4%;
+}
+
+.book-info-element p:nth-child(3) {
+  width: 48%;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  gap: 1em;
+}
+
+#search-bar {
+  width: 100%;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.25em 0.025em rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+  font-size: 1em;
+}
+
+#clear-search-bar-btn {
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  border: 0.01em solid var(--primary-color);
+  border-radius: 0.3em;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+#clear-search-bar-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#empty-search-bookshelf {
+  display: flex;
+}
+
+.not-found-search-term {
+  margin-left: 0.3em;
+  padding-inline: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25em;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.modal-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  max-width: 40em;
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  border: 0.05em solid var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.modal-box p {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.modal-box button {
+  padding-block: 0.25em;
+  padding-inline: 1.5em;
+  border: 0.05em solid var(--primary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.modal-box button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.modal-box button:active {
+  box-shadow: 0 0 0.5em 0.1em rgba(255, 255, 255, 0.15);
+}
+
+.modal-box-buttons {
+  display: flex;
+  gap: 2em;
+}
+
+.modal-box-buttons button {
+  width: 6.5em;
+}
+
+.modal-box-buttons button:hover {
+  background-color: var(--tertiary-green);
+}
+
+.modal-box-buttons button:last-child:hover {
+  background-color: var(--tertiary-red);
+}
+
+.edit-modal-box {
+  width: 35em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#edit-modal-box-title {
+  margin: 0 0 0.75em 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+#edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.edit-modal-box-buttons button {
+  width: 10em;
+}
+
+#delete-from-finished-btn:hover,
+#delete-from-unfinished-btn:hover,
+#delete-from-search-btn:hover {
+  background-color: var(--tertiary-red);
+}
+
+#delete-cancel-btn:hover {
+  background-color: var(--tertiary-green);
+}
+
+footer {
+  padding-block: 1.5em;
+  background-color: var(--primary-color);
+}
+
+footer p {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 1.15em;
+  text-align: center;
+}
+
+footer p a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+footer p a:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
